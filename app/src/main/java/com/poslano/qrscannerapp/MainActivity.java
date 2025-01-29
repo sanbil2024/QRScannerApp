@@ -131,9 +131,6 @@ public class MainActivity extends AppCompatActivity {
                         // Spremi QR kod u bazu
                         new Thread(() -> database.scannedCodeDao().insert(scannedCode)).start();
 
-                        if (qrValue.startsWith("http")) {
-                            openURL(qrValue);
-                        }
                     }
                 })
                 .addOnFailureListener(e -> Toast.makeText(this, "Greška kod skeniranja!", Toast.LENGTH_SHORT).show());
